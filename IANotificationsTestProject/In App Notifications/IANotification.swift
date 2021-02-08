@@ -1,5 +1,9 @@
 import UIKit
 
+//IANotification is where the content of an in app notification is stored
+//This class contains the window that displays the notification and all of the UI elements
+//This class handles triggering actions if present and tapped
+
 class IANotification: UIViewController {
     @IBOutlet weak var notificationView: UIStackView!
     @IBOutlet weak var messageLabel: UILabel!
@@ -41,6 +45,7 @@ class IANotification: UIViewController {
         }
     }
     
+    //Setup notification view appearance
     private func setupView() {
         view.backgroundColor = .clear
         
@@ -50,6 +55,7 @@ class IANotification: UIViewController {
         notificationView.backgroundColor = .lightGray
         messageLabel.textColor = .black
         
+        //Prepare action button if needed
         if action == nil {
             actionButton.isHidden = true
         } else {
@@ -60,6 +66,7 @@ class IANotification: UIViewController {
     }
     
     private func setupWindow(direction: IANDirection) {
+        //Set window to top or bottom of screen
         var rect: CGRect
         switch direction {
         case .upFromBottom:
