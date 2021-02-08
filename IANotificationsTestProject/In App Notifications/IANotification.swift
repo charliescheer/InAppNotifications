@@ -47,9 +47,6 @@ class IANotification: UIViewController {
     
     //Setup notification view appearance
     private func setupView() {
-        view.backgroundColor = .clear
-        
-        notificationView.translatesAutoresizingMaskIntoConstraints = false
         notificationView.layer.cornerRadius = 25
         notificationView.clipsToBounds = true
         notificationView.backgroundColor = .lightGray
