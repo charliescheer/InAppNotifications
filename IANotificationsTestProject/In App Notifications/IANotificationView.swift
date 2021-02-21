@@ -35,7 +35,7 @@ class IANotificationView: UIView {
     // MARK: View Layout
     
     private func setupView() {
-        let nib = UINib(nibName: "IANotification", bundle: nil)
+        let nib = UINib(nibName: "IANotificationView", bundle: nil)
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
             translatesAutoresizingMaskIntoConstraints = false
             addSubview(view)

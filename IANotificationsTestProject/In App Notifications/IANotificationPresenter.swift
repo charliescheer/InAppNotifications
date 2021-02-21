@@ -10,7 +10,7 @@ class IANotificationPresenter {
     
     static let shared = IANotificationPresenter()
     
-    var queue = IANQueue<IAController>()
+    var queue = IANQueue<IANotificationController>()
     var window: UIWindow? = nil
     var state: State = .inactive
     
@@ -25,7 +25,7 @@ class IANotificationPresenter {
     
     // MARK: Presenting Functions
     
-    func present(notification: IAController) {
+    func present(notification: IANotificationController) {
         // Should check to make sure the notification doesn't already exist in queue
         queue.enqueue(notification)
         prepareToPresent()
@@ -49,7 +49,7 @@ class IANotificationPresenter {
         presentNotification(notificationToPresent)
     }
     
-    private func presentNotification(_ notification: IAController) {
+    private func presentNotification(_ notification: IANotificationController) {
         state = .presenting
         
         window?.rootViewController = notification
@@ -63,7 +63,7 @@ class IANotificationPresenter {
         })
     }
     
-    private func dismissNotification(_ notification: IAController) {
+    private func dismissNotification(_ notification: IANotificationController) {
         state = .dismissing
         
         notification.dismissNotification {

@@ -1,6 +1,6 @@
 import UIKit
 
-class IAController: UIViewController {
+class IANotificationController: UIViewController {
     
     // MARK: Properties
     
