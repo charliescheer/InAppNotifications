@@ -2,19 +2,24 @@ import UIKit
 
 class IANotificationView: UIView {
     
+    // MARK: Properties
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var notificationTitle: UILabel!
     @IBOutlet weak var notificationButton: UIButton!
     
-    var action: IANAction? {
-        didSet {
-            if let action = action {
-                notificationButton.setTitle(action.title, for: .normal)
-            } else {
-                notificationButton.isHidden = true
-            }
-        }
+    var message: String?
+    var action: IANAction?
+    
+    // MARK: Initialization
+    
+    init(message: String, action: IANAction?, frame: CGRect) {
+        self.message = message
+        self.action = action
+        
+        super.init(frame: frame)
+        setupView()
     }
     
     override init(frame: CGRect) {
@@ -26,6 +31,8 @@ class IANotificationView: UIView {
         super.init(coder: coder)
         setupView()
     }
+    
+    // MARK: View Layout
     
     private func setupView() {
         let nib = UINib(nibName: "IANotification", bundle: nil)
@@ -44,9 +51,18 @@ class IANotificationView: UIView {
             contentView.clipsToBounds = true
             contentView.backgroundColor = .lightGray
             
-            notificationButton.titleLabel?.text = "test two"
+            if let action = action {
+                notificationButton.setTitle(action.title, for: .normal)
+            } else {
+                notificationButton.isHidden = true
+            }
+            if let message = message {
+                notificationTitle.text = message
+            }
         }
     }
+    
+    // MARK: Action
     
     @IBAction func actionButtonWasPressed(_ sender: Any) {
         if let action = action {
