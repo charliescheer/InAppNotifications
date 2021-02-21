@@ -7,18 +7,13 @@ class ViewController: UIViewController {
         let action = IANAction(title: "click me") {
             print("well clicked")
         }
-        let other = IAController(message: "Notice!!", action: action)
-        present(other, animated: true, completion: nil)
-//        let notificationView = IANotificationView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height / 2, width: UIScreen.main.bounds.width, height: 50))
-//        view.addSubview(notificationView)
-        let notification = IANotification(message: "Without Action", action: nil)
-        present(notification, animated: true, completion: nil)
-//        IANotificationPresenter.shared.presentNotification(notification)
+        let notification = IAController(message: "Notice!!", action: action)
+        IANotificationPresenter.shared.present(notification: notification)
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
-        let other = IAController(message: "Notice!!", action: nil)
-        present(other, animated: true, completion: nil)
+        let notification = IAController(message: "Notice!!", action: nil)
+        IANotificationPresenter.shared.present(notification: notification)
     }
     
     
