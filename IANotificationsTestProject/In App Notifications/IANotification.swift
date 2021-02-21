@@ -5,13 +5,11 @@ import UIKit
 //This class handles triggering actions if present and tapped
 
 class IANotification: UIViewController {
-    @IBOutlet weak var notificationView: UIStackView!
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var actionButton: UIButton!
+//    var notificationView: IANotificationView!
     var message: String
     var action: IANAction?
     var direction: IANDirection
-    var window: UIWindow!
+//    var window: UIWindow!
     
     var hasAction: Bool {
         return action != nil
@@ -19,10 +17,11 @@ class IANotification: UIViewController {
     
     
     init(message: String, action: IANAction?, direction: IANDirection = .upFromBottom) {
+//        self.notificationView = IANotificationView(frame: Constants.bottomRect)
         self.message = message
         self.action = action
         self.direction = direction
-        self.window = UIWindow()
+//        self.window = UIWindow()
         super.init(nibName: nil, bundle: nil)
         
         setupWindow(direction: direction)
@@ -38,28 +37,20 @@ class IANotification: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBAction func actionWasTapped(_ sender: Any) {
-        if let action = action {
-            actionButton.titleLabel?.text = action.message
-            action.action!(action)
-        }
-    }
-    
     //Setup notification view appearance
     private func setupView() {
-        notificationView.layer.cornerRadius = 25
-        notificationView.clipsToBounds = true
-        notificationView.backgroundColor = .lightGray
-        messageLabel.textColor = .black
+//        let notificationView = IANotificationView(frame: Constants.bottomRect)
+//        view.addSubview(notificationView)
+//        notificationView.notificationTitle.textColor = .black
         
         //Prepare action button if needed
-        if action == nil {
-            actionButton.isHidden = true
-        } else {
-            actionButton.titleLabel?.text = action!.message
-        }
+//        if action == nil {
+//            notificationView.notificationButton.isHidden = true
+//        } else {
+//            notificationView.notificationButton.titleLabel?.text = action!.message
+//        }
         
-        messageLabel.text = message
+//        notificationView.notificationTitle.text = message
     }
     
     private func setupWindow(direction: IANDirection) {
@@ -71,10 +62,10 @@ class IANotification: UIViewController {
         case .downFromTop:
             rect = Constants.topRect
         }
-        
-        window.backgroundColor = .clear
-        window.frame = rect
-        window.rootViewController = self
+//        
+//        window.backgroundColor = .clear
+//        window.frame = rect
+//        window.rootViewController = self
     }
 }
 

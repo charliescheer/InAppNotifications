@@ -7,12 +7,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IANotification" customModule="IANotificationsTestProject" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IANotificationView" customModule="IANotificationsTestProject" customModuleProvider="target">
             <connections>
-                <outlet property="actionButton" destination="eLk-Ep-cXJ" id="7jv-JO-Rag"/>
-                <outlet property="messageLabel" destination="fDQ-Ac-B9Q" id="ntP-Gc-pdN"/>
-                <outlet property="notificationView" destination="Z1j-KC-JgJ" id="fO7-3W-CCt"/>
-                <outlet property="view" destination="uG3-mo-MJt" id="BSs-jw-DLO"/>
+                <outlet property="contentView" destination="uG3-mo-MJt" id="7Oo-1b-uvH"/>
+                <outlet property="notificationButton" destination="eLk-Ep-cXJ" id="MXT-d9-GxV"/>
+                <outlet property="notificationTitle" destination="fDQ-Ac-B9Q" id="A2N-S8-7jH"/>
+                <outlet property="stackView" destination="Z1j-KC-JgJ" id="NnC-lg-cty"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,7 +33,7 @@
                             <rect key="frame" x="137.5" y="10" width="137.5" height="30"/>
                             <state key="normal" title="Button"/>
                             <connections>
-                                <action selector="actionWasTapped:" destination="-1" eventType="touchUpInside" id="XkS-PP-wZh"/>
+                                <action selector="actionButtonWasPressed:" destination="-1" eventType="touchUpInside" id="hyp-c0-QVN"/>
                             </connections>
                         </button>
                     </subviews>

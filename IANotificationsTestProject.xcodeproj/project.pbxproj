@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BAA6F53725E1D53B00A327F7 /* IANotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA6F53625E1D53B00A327F7 /* IANotificationView.swift */; };
+		BAA6F53A25E1DDF800A327F7 /* IANotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA6F53925E1DDF800A327F7 /* IANotificationController.swift */; };
 		BAD29F1225CF86AF0054DA6F /* IANAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD29F1125CF86AF0054DA6F /* IANAction.swift */; };
 		BAD29F1525CF88D40054DA6F /* IANotification.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD29F1425CF88D40054DA6F /* IANotification.xib */; };
 		BAD29F1C25D07BE90054DA6F /* IANotificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD29F1B25D07BE90054DA6F /* IANotificationPresenter.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BAA6F53625E1D53B00A327F7 /* IANotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IANotificationView.swift; sourceTree = "<group>"; };
+		BAA6F53925E1DDF800A327F7 /* IANotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IANotificationController.swift; sourceTree = "<group>"; };
 		BAD29F1125CF86AF0054DA6F /* IANAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IANAction.swift; sourceTree = "<group>"; };
 		BAD29F1425CF88D40054DA6F /* IANotification.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IANotification.xib; sourceTree = "<group>"; };
 		BAD29F1B25D07BE90054DA6F /* IANotificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IANotificationPresenter.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 				BAFF929A25CF83BA008098DB /* IANotification.swift */,
 				BAD29F1125CF86AF0054DA6F /* IANAction.swift */,
 				BAD29F1B25D07BE90054DA6F /* IANotificationPresenter.swift */,
+				BAA6F53625E1D53B00A327F7 /* IANotificationView.swift */,
+				BAA6F53925E1DDF800A327F7 /* IANotificationController.swift */,
 			);
 			path = "In App Notifications";
 			sourceTree = "<group>";
@@ -163,11 +169,13 @@
 			files = (
 				BAD29F1225CF86AF0054DA6F /* IANAction.swift in Sources */,
 				BAD29F1C25D07BE90054DA6F /* IANotificationPresenter.swift in Sources */,
+				BAA6F53A25E1DDF800A327F7 /* IANotificationController.swift in Sources */,
 				BAFF929525CF82CF008098DB /* Queuing.swift in Sources */,
 				BAFF927F25CF7F84008098DB /* ViewController.swift in Sources */,
 				BAFF929825CF8352008098DB /* IANQueue.swift in Sources */,
 				BAFF927B25CF7F84008098DB /* AppDelegate.swift in Sources */,
 				BAFF929B25CF83BA008098DB /* IANotification.swift in Sources */,
+				BAA6F53725E1D53B00A327F7 /* IANotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

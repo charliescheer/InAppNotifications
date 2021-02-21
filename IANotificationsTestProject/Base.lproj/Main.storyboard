@@ -63,7 +63,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Action" id="dSn-dx-3hX">
                                             <connections>
-                                                <action selector="button3Tapped:" destination="BYZ-38-t0r" id="18t-ay-Hc0"/>
+                                                <action selector="actionButtonTapped:" destination="BYZ-38-t0r" id="OZ9-PY-g3o"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

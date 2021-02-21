@@ -37,16 +37,16 @@ extension IANotificationPresenter {
     //Animate a notification in
     public func animateIn(_ notification: IANotification, completion: @escaping () -> Void) {
         //Make notification window visisble
-        notification.window.isHidden = false
-        //Begin animation
-        UIWindow.animate(withDuration: Times.fade) {
-            var endFrame = notification.window.frame
-            endFrame.origin.y -= 300
-
-            notification.window.frame = endFrame
-        } completion: { (_) in
-            completion()
-        }
+//        notification.window.isHidden = false
+//        //Begin animation
+//        UIWindow.animate(withDuration: Times.fade) {
+//            var endFrame = notification.window.frame
+//            endFrame.origin.y -= 300
+//
+//            notification.window.frame = endFrame
+//        } completion: { (_) in
+//            completion()
+//        }
         
     }
     
@@ -63,7 +63,7 @@ extension IANotificationPresenter {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             //Trigger notification to fade out
             UIWindow.animate(withDuration: Times.fade) {
-                notification.window.alpha = 0
+//                notification.window.alpha = 0
             } completion: { (_) in
                 //When animation is complete set currently presenting to false
                 self.presenting = false

@@ -4,25 +4,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func button2Tapped(_ sender: Any) {
+        let action = IANAction(title: "click me") {
+            print("well clicked")
+        }
+        let other = IAController(message: "Notice!!", action: action)
+        present(other, animated: true, completion: nil)
+//        let notificationView = IANotificationView(frame: CGRect(x: 0, y: UIScreen.main.bounds.height / 2, width: UIScreen.main.bounds.width, height: 50))
+//        view.addSubview(notificationView)
         let notification = IANotification(message: "Without Action", action: nil)
-        IANotificationPresenter.shared.presentNotification(notification)
+        present(notification, animated: true, completion: nil)
+//        IANotificationPresenter.shared.presentNotification(notification)
     }
     
-    @IBAction func button3Tapped(_ sender: Any) {
-        let action = IANAction(message: "Action") { (action) in
-            print("An action took place")
-        }
-
-        let notification = IANotification(message: "With Button", action: action)
-        IANotificationPresenter.shared.presentNotification(notification)
+    @IBAction func actionButtonTapped(_ sender: Any) {
+        let other = IAController(message: "Notice!!", action: nil)
+        present(other, animated: true, completion: nil)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setText()
     }
-
-
 }
 
 extension ViewController {
