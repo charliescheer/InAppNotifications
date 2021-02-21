@@ -5,85 +5,80 @@ import UIKit
 //This class will also manage listening to keyboard changes and rotation changes, and manage pausing dismissal if user interacts with notification
 
 class IANotificationPresenter {
+    
+    // MARK: Properties
+    
     static let shared = IANotificationPresenter()
     
-    var queue = IANQueue<IANotification>()
-    var presenting = false
+    var queue = IANQueue<IAController>()
+    var window: UIWindow? = nil
+    var state: State = .inactive
     
     private init() { }
     
-    //Method will present a given notification on screen
-    //If a notification is already present than the nofitication is queued to be run in turn
-    public func presentNotification(_ notification: IANotification) {
-        //Check if there are currently presenting notifications
-        guard !presenting else {
-            //If so, enqueu the notification and exit
-            queue.enqueue(notification)
+    enum State: String {
+        case inactive
+        case preparing
+        case presenting
+        case dismissing
+    }
+    
+    // MARK: Presenting Functions
+    
+    func present(notification: IAController) {
+        // Should check to make sure the notification doesn't already exist in queue
+        queue.enqueue(notification)
+        prepareToPresent()
+    }
+    
+    // MARK: State Management Functions
+    
+    private func prepareToPresent() {
+        guard state == .inactive else {
+            return
+        }
+        state = .preparing
+        
+        guard let notificationToPresent = queue.dequeue() else {
+            state = .inactive
             return
         }
         
-        //Set self to presenting
-        presenting = true
-        
-        //Present a notification
-        animateIn(notification) {
-            //When presenting is finished fade out the presented notification
-            self.animateFadeOut(notification)
-        }
-    }
-}
-
-extension IANotificationPresenter {
-    //Animate a notification in
-    public func animateIn(_ notification: IANotification, completion: @escaping () -> Void) {
-        //Make notification window visisble
-//        notification.window.isHidden = false
-//        //Begin animation
-//        UIWindow.animate(withDuration: Times.fade) {
-//            var endFrame = notification.window.frame
-//            endFrame.origin.y -= 300
-//
-//            notification.window.frame = endFrame
-//        } completion: { (_) in
-//            completion()
-//        }
-        
+        //Needs to be untouchable
+        window = UIWindow(frame: UIScreen.main.bounds)
+        presentNotification(notificationToPresent)
     }
     
-    public func animateFadeOut(_ notification: IANotification) {
-        //Choose the correct delay time
-        var delay: Double
-        if notification.hasAction {
-            delay = Times.waitLong
-        } else {
-            delay = Times.waitShort
-        }
+    private func presentNotification(_ notification: IAController) {
+        state = .presenting
         
-        //After waiting...
-        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            //Trigger notification to fade out
-            UIWindow.animate(withDuration: Times.fade) {
-//                notification.window.alpha = 0
-            } completion: { (_) in
-                //When animation is complete set currently presenting to false
-                self.presenting = false
-                
-                //If the queue is not empty, trigger presentNotifications again with the next in line
-                if !self.queue.isEmpty  {
-                    self.presentNotification(self.queue.dequeue()!)
-                }
+        window?.rootViewController = notification
+        window?.isHidden = false
+        
+        notification.displayNotification(completion: { () in
+            let delay = notification.hasAction ? Times.waitLong : Times.waitShort
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                self.dismissNotification(notification)
+            }
+        })
+    }
+    
+    private func dismissNotification(_ notification: IAController) {
+        state = .dismissing
+        
+        notification.dismissNotification {
+            if self.queue.isEmpty {
+                notification.dismiss(animated: false, completion: nil)
+                self.window = nil
+                self.state = .inactive
+            } else {
+                self.prepareToPresent()
             }
         }
-
     }
 }
 
 private struct Times {
     static let waitShort = 1.5
     static let waitLong = 2.75
-    static let fade = TimeInterval(0.5)
-}
-
-private struct Constants {
-    static let windowFrame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: 50)
 }
