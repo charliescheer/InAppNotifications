@@ -4,15 +4,9 @@ class NoticeViewController: UIViewController {
     
     // MARK: Properties
     var notice: Notice
-//    var message: String
-//    var action: NoticeAction?
     var noticeView: NoticeView?
     var noticeTopConstraint: NSLayoutConstraint?
-    
-//    var hasAction: Bool {
-//        return notice.action != nil
-//    }
-    
+
     // MARK: Initialization
     
     init(notice: Notice) {
@@ -28,7 +22,11 @@ class NoticeViewController: UIViewController {
     // MARK: View Layout
     
     override func viewDidLoad() {
-        let noticeToPresent = NoticeView(message: notice.message, action: notice.action, frame: Constants.notificationFrame)
+        let noticeToPresent = NoticeView(frame: Constants.notificationFrame)
+        noticeToPresent.noticeLabel.text = notice.message
+        noticeToPresent.action = notice.action?.handler
+        noticeToPresent.noticeButton.setTitle(notice.action?.title, for: .normal)
+        
         noticeView = noticeToPresent
         
         view.addSubview(noticeToPresent)
