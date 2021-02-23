@@ -10,7 +10,7 @@ class NoticePresenter {
     
     static let shared = NoticePresenter()
     
-    var queue = NoticeQueue<NoticeViewController>()
+    var queue = NoticeQueue<Notice>()
     var window: UIWindow? = nil
     var state: State = .inactive
     
@@ -25,7 +25,7 @@ class NoticePresenter {
     
     // MARK: Presenting Functions
     
-    func present(notice: NoticeViewController) {
+    func present(_ notice: Notice) {
         // Should check to make sure the notification doesn't already exist in queue
         queue.enqueue(notice)
         prepareToPresent()
@@ -46,29 +46,41 @@ class NoticePresenter {
         
         //Needs to be untouchable
         window = UIWindow(frame: UIScreen.main.bounds)
+        let noticeViewController = NoticeViewController(notice: noticeToPresent)
+        window?.rootViewController = noticeViewController
+        
         presentNotification(noticeToPresent)
     }
     
-    private func presentNotification(_ notice: NoticeViewController) {
+    private func presentNotification(_ notice: Notice) {
+        guard let noticeWindow = window,
+              let noticeViewController = noticeWindow.rootViewController as? NoticeViewController else {
+            state = .inactive
+            return
+        }
         state = .presenting
+
+        noticeWindow.isHidden = false
         
-        window?.rootViewController = notice
-        window?.isHidden = false
-        
-        notice.displayNotification(completion: { () in
-            let delay = notice.notice.hasAction ? Times.waitLong : Times.waitShort
+        noticeViewController.displayNotification(completion: { () in
+            let delay = noticeViewController.notice.hasAction ? Times.waitLong : Times.waitShort
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                self.dismissNotification(notice)
+                self.dismissNotification()
             }
         })
     }
     
-    private func dismissNotification(_ notice: NoticeViewController) {
+    private func dismissNotification() {
+        guard let noticeWindow = window,
+              let noticeViewController = noticeWindow.rootViewController as? NoticeViewController else {
+            state = .inactive
+            return
+        }
         state = .dismissing
         
-        notice.dismissNotification {
+        noticeViewController.dismissNotification {
             if self.queue.isEmpty {
-                notice.dismiss(animated: false, completion: nil)
+                noticeViewController.dismiss(animated: false, completion: nil)
                 self.window = nil
                 self.state = .inactive
             } else {
