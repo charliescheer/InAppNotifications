@@ -12,6 +12,7 @@
 		BAD29F1525CF88D40054DA6F /* SnackbarNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD29F1425CF88D40054DA6F /* SnackbarNoticeView.xib */; };
 		BAD29F1C25D07BE90054DA6F /* NoticePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD29F1B25D07BE90054DA6F /* NoticePresenter.swift */; };
 		BAD682BC25E491D100476BA8 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD682BB25E491D100476BA8 /* NoticeView.swift */; };
+		BAD682C225E4940400476BA8 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD682C125E4940400476BA8 /* Notice.swift */; };
 		BAFF927B25CF7F84008098DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFF927A25CF7F84008098DB /* AppDelegate.swift */; };
 		BAFF927F25CF7F84008098DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFF927E25CF7F84008098DB /* ViewController.swift */; };
 		BAFF928225CF7F84008098DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFF928025CF7F84008098DB /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		BAD29F1425CF88D40054DA6F /* SnackbarNoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnackbarNoticeView.xib; sourceTree = "<group>"; };
 		BAD29F1B25D07BE90054DA6F /* NoticePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePresenter.swift; sourceTree = "<group>"; };
 		BAD682BB25E491D100476BA8 /* NoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		BAD682C125E4940400476BA8 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		BAFF927725CF7F84008098DB /* IANotificationsTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IANotificationsTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFF927A25CF7F84008098DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAFF927E25CF7F84008098DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				BAFF929425CF82CF008098DB /* Queuing.swift */,
 				BAFF929725CF8352008098DB /* NoticeQueue.swift */,
 				BAD29F1125CF86AF0054DA6F /* NoticeAction.swift */,
+				BAD682C125E4940400476BA8 /* Notice.swift */,
 				BAD29F1B25D07BE90054DA6F /* NoticePresenter.swift */,
 				BAA6F53925E1DDF800A327F7 /* NoticeViewController.swift */,
 			);
@@ -167,6 +170,7 @@
 				BAD682BC25E491D100476BA8 /* NoticeView.swift in Sources */,
 				BAD29F1225CF86AF0054DA6F /* NoticeAction.swift in Sources */,
 				BAD29F1C25D07BE90054DA6F /* NoticePresenter.swift in Sources */,
+				BAD682C225E4940400476BA8 /* Notice.swift in Sources */,
 				BAA6F53A25E1DDF800A327F7 /* NoticeViewController.swift in Sources */,
 				BAFF929525CF82CF008098DB /* Queuing.swift in Sources */,
 				BAFF927F25CF7F84008098DB /* ViewController.swift in Sources */,
