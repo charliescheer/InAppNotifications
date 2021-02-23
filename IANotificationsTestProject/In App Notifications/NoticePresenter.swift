@@ -49,10 +49,10 @@ class NoticePresenter {
         let noticeViewController = NoticeViewController(notice: noticeToPresent)
         window?.rootViewController = noticeViewController
         
-        presentNotification(noticeToPresent)
+        presentNotice()
     }
     
-    private func presentNotification(_ notice: Notice) {
+    private func presentNotice() {
         guard let noticeWindow = window,
               let noticeViewController = noticeWindow.rootViewController as? NoticeViewController else {
             state = .inactive
@@ -65,12 +65,12 @@ class NoticePresenter {
         noticeViewController.displayNotification(completion: { () in
             let delay = noticeViewController.notice.hasAction ? Times.waitLong : Times.waitShort
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                self.dismissNotification()
+                self.dismissNotice()
             }
         })
     }
     
-    private func dismissNotification() {
+    private func dismissNotice() {
         guard let noticeWindow = window,
               let noticeViewController = noticeWindow.rootViewController as? NoticeViewController else {
             state = .inactive
