@@ -1,6 +1,6 @@
 import Foundation
 
-struct IANAction {
+struct NoticeAction {
     let title: String
     var handler: () -> Void
 }

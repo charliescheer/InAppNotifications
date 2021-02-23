@@ -4,16 +4,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func button2Tapped(_ sender: Any) {
-        let action = IANAction(title: "click me") {
+        let action = NoticeAction(title: "click me") {
             print("well clicked")
         }
-        let notification = IANotificationController(message: "Notice!!", action: action)
-        IANotificationPresenter.shared.present(notification: notification)
+        let notification = NoticeViewController(message: "Notice!!", action: action)
+        NoticePresenter.shared.present(notice: notification)
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
-        let notification = IANotificationController(message: "Notice!!", action: nil)
-        IANotificationPresenter.shared.present(notification: notification)
+        let notification = NoticeViewController(message: "Notice!!", action: nil)
+        NoticePresenter.shared.present(notice: notification)
     }
     
     

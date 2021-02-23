@@ -4,13 +4,13 @@ import UIKit
 //This class will contain a queue of notifications, present them on screen, and manage animations
 //This class will also manage listening to keyboard changes and rotation changes, and manage pausing dismissal if user interacts with notification
 
-class IANotificationPresenter {
+class NoticePresenter {
     
     // MARK: Properties
     
-    static let shared = IANotificationPresenter()
+    static let shared = NoticePresenter()
     
-    var queue = IANQueue<IANotificationController>()
+    var queue = NoticeQueue<NoticeViewController>()
     var window: UIWindow? = nil
     var state: State = .inactive
     
@@ -25,9 +25,9 @@ class IANotificationPresenter {
     
     // MARK: Presenting Functions
     
-    func present(notification: IANotificationController) {
+    func present(notice: NoticeViewController) {
         // Should check to make sure the notification doesn't already exist in queue
-        queue.enqueue(notification)
+        queue.enqueue(notice)
         prepareToPresent()
     }
     
@@ -39,36 +39,36 @@ class IANotificationPresenter {
         }
         state = .preparing
         
-        guard let notificationToPresent = queue.dequeue() else {
+        guard let noticeToPresent = queue.dequeue() else {
             state = .inactive
             return
         }
         
         //Needs to be untouchable
         window = UIWindow(frame: UIScreen.main.bounds)
-        presentNotification(notificationToPresent)
+        presentNotification(noticeToPresent)
     }
     
-    private func presentNotification(_ notification: IANotificationController) {
+    private func presentNotification(_ notice: NoticeViewController) {
         state = .presenting
         
-        window?.rootViewController = notification
+        window?.rootViewController = notice
         window?.isHidden = false
         
-        notification.displayNotification(completion: { () in
-            let delay = notification.hasAction ? Times.waitLong : Times.waitShort
+        notice.displayNotification(completion: { () in
+            let delay = notice.hasAction ? Times.waitLong : Times.waitShort
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                self.dismissNotification(notification)
+                self.dismissNotification(notice)
             }
         })
     }
     
-    private func dismissNotification(_ notification: IANotificationController) {
+    private func dismissNotification(_ notice: NoticeViewController) {
         state = .dismissing
         
-        notification.dismissNotification {
+        notice.dismissNotification {
             if self.queue.isEmpty {
-                notification.dismiss(animated: false, completion: nil)
+                notice.dismiss(animated: false, completion: nil)
                 self.window = nil
                 self.state = .inactive
             } else {

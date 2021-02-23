@@ -1,13 +1,13 @@
 import UIKit
 
-class IANotificationController: UIViewController {
+class NoticeViewController: UIViewController {
     
     // MARK: Properties
     
     var message: String
-    var action: IANAction?
-    var notification: IANotificationView?
-    var notificationTopConstraint: NSLayoutConstraint?
+    var action: NoticeAction?
+    var noticeView: NoticeView?
+    var noticeTopConstraint: NSLayoutConstraint?
     
     var hasAction: Bool {
         return action != nil
@@ -15,7 +15,7 @@ class IANotificationController: UIViewController {
     
     // MARK: Initialization
     
-    init(message: String, action: IANAction?) {
+    init(message: String, action: NoticeAction?) {
         self.message = message
         self.action = action
         super.init(nibName: nil, bundle: nil)
@@ -29,16 +29,16 @@ class IANotificationController: UIViewController {
     // MARK: View Layout
     
     override func viewDidLoad() {
-        let notificationToPresent = IANotificationView(message: message, action: action, frame: Constants.notificationFrame)
-        notification = notificationToPresent
+        let noticeToPresent = NoticeView(message: message, action: action, frame: Constants.notificationFrame)
+        noticeView = noticeToPresent
         
-        view.addSubview(notificationToPresent)
-        prepareView(notificationToPresent)
+        view.addSubview(noticeToPresent)
+        prepareView(noticeToPresent)
     }
     
-    private func prepareView(_ notification: IANotificationView) {
-        notificationTopConstraint = notification.topAnchor.constraint(equalTo: view.bottomAnchor)
-        notificationTopConstraint?.isActive = true
+    private func prepareView(_ notification: NoticeView) {
+        noticeTopConstraint = notification.topAnchor.constraint(equalTo: view.bottomAnchor)
+        noticeTopConstraint?.isActive = true
         notification.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         view.layoutIfNeeded()
     }
@@ -46,12 +46,12 @@ class IANotificationController: UIViewController {
     // MARK: Display/Dismiss Animations
     
     func displayNotification(completion: @escaping () -> Void) {
-        guard let notification = notification else {
+        guard let noticeView = noticeView else {
             return
         }
         
-        self.notificationTopConstraint?.isActive = false
-        let newConstraint = notification.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.notificationBottomMargin)
+        self.noticeTopConstraint?.isActive = false
+        let newConstraint = noticeView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.notificationBottomMargin)
         newConstraint.isActive = true
             
         UIView.animate(withDuration: Times.animationTime) {
@@ -62,7 +62,7 @@ class IANotificationController: UIViewController {
     }
     
     func dismissNotification(completion: @escaping () -> Void) {
-        guard let _ = notification else {
+        guard let _ = noticeView else {
             return
         }
         

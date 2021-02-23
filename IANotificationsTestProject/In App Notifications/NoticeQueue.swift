@@ -1,6 +1,6 @@
 import Foundation
 
-struct IANQueue<T>: Queuing {
+struct NoticeQueue<T>: Queuing {
     private var array: [T] = []
     
     public init() {}

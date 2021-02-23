@@ -1,20 +1,19 @@
 import UIKit
 
-class IANotificationView: UIView {
+class NoticeView: UIView {
     
     // MARK: Properties
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var notificationTitle: UILabel!
-    @IBOutlet weak var notificationButton: UIButton!
-    
+    @IBOutlet weak var noticeLabel: UILabel!
+    @IBOutlet weak var noticeButton: UIButton!
     var message: String?
-    var action: IANAction?
+    var action: NoticeAction?
     
     // MARK: Initialization
     
-    init(message: String, action: IANAction?, frame: CGRect) {
+    init(message: String, action: NoticeAction?, frame: CGRect) {
         self.message = message
         self.action = action
         
@@ -35,7 +34,7 @@ class IANotificationView: UIView {
     // MARK: View Layout
     
     private func setupView() {
-        let nib = UINib(nibName: "IANotificationView", bundle: nil)
+        let nib = UINib(nibName: "SnackbarNoticeView", bundle: nil)
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
             translatesAutoresizingMaskIntoConstraints = false
             addSubview(view)
@@ -52,21 +51,22 @@ class IANotificationView: UIView {
             contentView.backgroundColor = .lightGray
             
             if let action = action {
-                notificationButton.setTitle(action.title, for: .normal)
+                noticeButton.setTitle(action.title, for: .normal)
             } else {
-                notificationButton.isHidden = true
+                noticeButton.isHidden = true
             }
             if let message = message {
-                notificationTitle.text = message
+                noticeLabel.text = message
             }
         }
     }
     
     // MARK: Action
     
-    @IBAction func actionButtonWasPressed(_ sender: Any) {
+    @IBAction func noticeButtonWasTapped(_ sender: Any) {
         if let action = action {
             action.handler()
         }
     }
+    
 }
