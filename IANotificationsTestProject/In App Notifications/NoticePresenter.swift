@@ -1,9 +1,5 @@
 import UIKit
 
-//IANotificationPresenter is the class that will be most frequently interacted with in SN.
-//This class will contain a queue of notifications, present them on screen, and manage animations
-//This class will also manage listening to keyboard changes and rotation changes, and manage pausing dismissal if user interacts with notification
-
 class NoticePresenter {
     
     // MARK: Properties
