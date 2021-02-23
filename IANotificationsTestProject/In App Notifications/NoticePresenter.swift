@@ -56,7 +56,7 @@ class NoticePresenter {
         window?.isHidden = false
         
         notice.displayNotification(completion: { () in
-            let delay = notice.hasAction ? Times.waitLong : Times.waitShort
+            let delay = notice.notice.hasAction ? Times.waitLong : Times.waitShort
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 self.dismissNotification(notice)
             }

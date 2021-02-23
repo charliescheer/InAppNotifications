@@ -7,12 +7,14 @@ class ViewController: UIViewController {
         let action = NoticeAction(title: "click me") {
             print("well clicked")
         }
-        let notification = NoticeViewController(message: "Notice!!", action: action)
+        let notice = Notice(message: "Notice!!", action: action)
+        let notification = NoticeViewController(notice: notice)
         NoticePresenter.shared.present(notice: notification)
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
-        let notification = NoticeViewController(message: "Notice!!", action: nil)
+        let notice = Notice(message: "Notice!!", action: nil)
+        let notification = NoticeViewController(notice: notice)
         NoticePresenter.shared.present(notice: notification)
     }
     

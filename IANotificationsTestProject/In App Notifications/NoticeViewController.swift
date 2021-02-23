@@ -3,33 +3,32 @@ import UIKit
 class NoticeViewController: UIViewController {
     
     // MARK: Properties
-    
-    var message: String
-    var action: NoticeAction?
+    var notice: Notice
+//    var message: String
+//    var action: NoticeAction?
     var noticeView: NoticeView?
     var noticeTopConstraint: NSLayoutConstraint?
     
-    var hasAction: Bool {
-        return action != nil
-    }
+//    var hasAction: Bool {
+//        return notice.action != nil
+//    }
     
     // MARK: Initialization
     
-    init(message: String, action: NoticeAction?) {
-        self.message = message
-        self.action = action
+    init(notice: Notice) {
+        self.notice = notice
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        self.message = ""
+        self.notice = Notice(message: "", action: nil)
         super.init(coder: coder)
     }
     
     // MARK: View Layout
     
     override func viewDidLoad() {
-        let noticeToPresent = NoticeView(message: message, action: action, frame: Constants.notificationFrame)
+        let noticeToPresent = NoticeView(message: notice.message, action: notice.action, frame: Constants.notificationFrame)
         noticeView = noticeToPresent
         
         view.addSubview(noticeToPresent)
