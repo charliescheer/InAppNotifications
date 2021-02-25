@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoticeView" customModule="IANotificationsTestProject" customModuleProvider="target">
             <connections>
-                <outlet property="contentView" destination="uG3-mo-MJt" id="KFN-ky-NhF"/>
                 <outlet property="noticeButton" destination="eLk-Ep-cXJ" id="dFc-kP-jos"/>
                 <outlet property="noticeLabel" destination="fDQ-Ac-B9Q" id="ZfH-mj-C3a"/>
                 <outlet property="stackView" destination="Z1j-KC-JgJ" id="ie9-oa-ayd"/>

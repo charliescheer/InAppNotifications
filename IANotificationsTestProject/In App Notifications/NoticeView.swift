@@ -3,17 +3,18 @@ import UIKit
 class NoticeView: UIView {
     
     // MARK: Properties
-    
-    @IBOutlet var contentView: UIView!
+
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var noticeLabel: UILabel!
     @IBOutlet weak var noticeButton: UIButton!
+
+    var delegate: NoticePresentingDelegate?
     var action: (() -> Void)? {
         didSet {
             noticeButton.isHidden = action == nil ? true : false
         }
     }
-    
+
     // MARK: Initialization
     
     override init(frame: CGRect) {
@@ -35,15 +36,15 @@ class NoticeView: UIView {
             addSubview(view)
             
             NSLayoutConstraint.activate([
-                contentView.topAnchor.constraint(equalTo: self.topAnchor),
-                contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                contentView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                contentView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+                stackView.topAnchor.constraint(equalTo: self.topAnchor),
+                stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
             ])
             
-            contentView.layer.cornerRadius = 25
-            contentView.clipsToBounds = true
-            contentView.backgroundColor = .lightGray
+            stackView.layer.cornerRadius = 25
+            stackView.clipsToBounds = true
+            stackView.backgroundColor = .lightGray
         }
     }
     
