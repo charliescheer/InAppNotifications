@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BAA6F53A25E1DDF800A327F7 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA6F53925E1DDF800A327F7 /* NoticeViewController.swift */; };
+		BA4F66DC25E6E44500D85C45 /* NoticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F66DB25E6E44500D85C45 /* NoticeController.swift */; };
 		BAD29F1225CF86AF0054DA6F /* NoticeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD29F1125CF86AF0054DA6F /* NoticeAction.swift */; };
 		BAD29F1525CF88D40054DA6F /* SnackbarNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD29F1425CF88D40054DA6F /* SnackbarNoticeView.xib */; };
 		BAD29F1C25D07BE90054DA6F /* NoticePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD29F1B25D07BE90054DA6F /* NoticePresenter.swift */; };
@@ -18,12 +18,10 @@
 		BAFF928225CF7F84008098DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFF928025CF7F84008098DB /* Main.storyboard */; };
 		BAFF928425CF7F85008098DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAFF928325CF7F85008098DB /* Assets.xcassets */; };
 		BAFF928725CF7F85008098DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFF928525CF7F85008098DB /* LaunchScreen.storyboard */; };
-		BAFF929525CF82CF008098DB /* Queuing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFF929425CF82CF008098DB /* Queuing.swift */; };
-		BAFF929825CF8352008098DB /* NoticeQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFF929725CF8352008098DB /* NoticeQueue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BAA6F53925E1DDF800A327F7 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		BA4F66DB25E6E44500D85C45 /* NoticeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeController.swift; sourceTree = "<group>"; };
 		BAD29F1125CF86AF0054DA6F /* NoticeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAction.swift; sourceTree = "<group>"; };
 		BAD29F1425CF88D40054DA6F /* SnackbarNoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnackbarNoticeView.xib; sourceTree = "<group>"; };
 		BAD29F1B25D07BE90054DA6F /* NoticePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePresenter.swift; sourceTree = "<group>"; };
@@ -36,8 +34,6 @@
 		BAFF928325CF7F85008098DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAFF928625CF7F85008098DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAFF928825CF7F85008098DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAFF929425CF82CF008098DB /* Queuing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queuing.swift; sourceTree = "<group>"; };
-		BAFF929725CF8352008098DB /* NoticeQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeQueue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +52,10 @@
 			children = (
 				BAD29F1425CF88D40054DA6F /* SnackbarNoticeView.xib */,
 				BAD682BB25E491D100476BA8 /* NoticeView.swift */,
-				BAFF929425CF82CF008098DB /* Queuing.swift */,
-				BAFF929725CF8352008098DB /* NoticeQueue.swift */,
 				BAD29F1125CF86AF0054DA6F /* NoticeAction.swift */,
 				BAD682C125E4940400476BA8 /* Notice.swift */,
 				BAD29F1B25D07BE90054DA6F /* NoticePresenter.swift */,
-				BAA6F53925E1DDF800A327F7 /* NoticeViewController.swift */,
+				BA4F66DB25E6E44500D85C45 /* NoticeController.swift */,
 			);
 			path = "In App Notifications";
 			sourceTree = "<group>";
@@ -171,10 +165,8 @@
 				BAD29F1225CF86AF0054DA6F /* NoticeAction.swift in Sources */,
 				BAD29F1C25D07BE90054DA6F /* NoticePresenter.swift in Sources */,
 				BAD682C225E4940400476BA8 /* Notice.swift in Sources */,
-				BAA6F53A25E1DDF800A327F7 /* NoticeViewController.swift in Sources */,
-				BAFF929525CF82CF008098DB /* Queuing.swift in Sources */,
+				BA4F66DC25E6E44500D85C45 /* NoticeController.swift in Sources */,
 				BAFF927F25CF7F84008098DB /* ViewController.swift in Sources */,
-				BAFF929825CF8352008098DB /* NoticeQueue.swift in Sources */,
 				BAFF927B25CF7F84008098DB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
