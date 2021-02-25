@@ -45,6 +45,11 @@ class NoticeView: UIView {
             stackView.layer.cornerRadius = 25
             stackView.clipsToBounds = true
             stackView.backgroundColor = .lightGray
+
+            noticeButton.isHidden = true
+
+            let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(viewWasTapped(_:)))
+            view.addGestureRecognizer(tapGesture)
         }
     }
     
@@ -53,5 +58,25 @@ class NoticeView: UIView {
     @IBAction func noticeButtonWasTapped(_ sender: Any) {
         action?()
     }
-    
+}
+
+extension NoticeView {
+    @objc private func viewWasTapped(_ gesture: UIGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            tapBegan()
+        case .ended:
+            tapEnded()
+        default:
+            return
+        }
+    }
+
+    private func tapBegan() {
+        delegate?.noticeTouchBegan()
+    }
+
+    private func tapEnded() {
+        delegate?.noticeTouchEnded()
+    }
 }
