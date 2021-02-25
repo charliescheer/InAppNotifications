@@ -1,6 +1,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let noticePresenter = NoticePresenter()
+    let noticeController = NoticeController()
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func button2Tapped(_ sender: Any) {
@@ -8,12 +10,19 @@ class ViewController: UIViewController {
             print("well clicked")
         }
         let notice = Notice(message: "Notice!!", action: action)
-        NoticePresenter.shared.present(notice)
+
+        noticeController.present(notice)
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
         let notice = Notice(message: "Notice!!", action: nil)
-        NoticePresenter.shared.present(notice)
+
+        let action = NoticeAction(title: "Click~") {
+            print("clicked")
+        }
+        let noticeWAction = Notice(message: "Action!!", action: action)
+
+        noticeController.present(notice)
     }
     
     
