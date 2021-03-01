@@ -9,22 +9,19 @@ class NoticeController {
     func present(_ notice: Notice) {
         if noticePresenter.isPresenting {
             notices.append(notice)
-        } else {
-            let noticeView = makeNoticeView(from: notice)
+            return
+        }
 
-            noticePresenter.presentNoticeView(noticeView) {
+        let noticeView = makeNoticeView(from: notice)
+
+        noticePresenter.presentNoticeView(noticeView) {
+            if !self.activeViewIsBeingTouched {
                 self.dismiss(noticeView)
             }
         }
     }
 
     func dismiss(_ noticeView: NoticeView) {
-        guard !activeViewIsBeingTouched else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + Times.tapDelay) {
-                self.dismiss(noticeView)
-            }
-            return
-        }
         DispatchQueue.main.asyncAfter(deadline: .now() + Times.tapDelay) {
             self.noticePresenter.dismissNotification {
                 if !self.notices.isEmpty {
@@ -52,6 +49,11 @@ extension NoticeController: NoticePresentingDelegate {
 
     func noticeTouchEnded() {
         activeViewIsBeingTouched = false
+
+        guard let noticeView = noticePresenter.noticeView else {
+            return
+        }
+        dismiss(noticeView)
     }
 }
 
