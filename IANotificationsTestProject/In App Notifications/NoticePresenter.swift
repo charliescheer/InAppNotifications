@@ -3,6 +3,7 @@ import UIKit
 class NoticePresenter {
     
     // MARK: Properties
+    var containerView: UntouchableView?
     var noticeView: NoticeView?
     var noticeTopConstraint: NSLayoutConstraint?
 
@@ -17,24 +18,30 @@ class NoticePresenter {
             return
         }
         self.noticeView = noticeView
-        keyWindow.addSubview(noticeView)
+        let containingView = UntouchableView(frame: .zero)
+        containerView = containingView
 
-        noticeTopConstraint = noticeView.topAnchor.constraint(equalTo: keyWindow.bottomAnchor)
+        containingView.addSubview(noticeView)
+        keyWindow.addSubview(containingView)
+
+        containingView.setViewToFillSuperView()
+
+        noticeTopConstraint = noticeView.topAnchor.constraint(equalTo: containingView.bottomAnchor)
         noticeTopConstraint?.isActive = true
         NSLayoutConstraint.activate([
-            noticeView.centerXAnchor.constraint(equalTo: keyWindow.centerXAnchor),
+            noticeView.centerXAnchor.constraint(equalTo: containingView.centerXAnchor),
             noticeView.widthAnchor.constraint(equalToConstant: CGFloat(275)),
             noticeView.heightAnchor.constraint(equalToConstant: 50)
         ])
 
-        keyWindow.layoutIfNeeded()
+        containingView.layoutIfNeeded()
         displayNotificationView {
             completion()
         }
     }
 
     private func displayNotificationView(completion: @escaping () -> Void) {
-        guard let keyWindow = getKeyWindow(),
+        guard let containerView = containerView,
               let noticeView = noticeView else {
             return
         }
@@ -62,7 +69,10 @@ class NoticePresenter {
         UIView.animate(withDuration: Times.animationTime) {
             noticeView.alpha = 0
         } completion: { (_) in
+            self.noticeView?.removeFromSuperview()
+            self.containerView?.removeFromSuperview()
             self.noticeView = nil
+            self.containerView = nil
             completion()
         }
     }
