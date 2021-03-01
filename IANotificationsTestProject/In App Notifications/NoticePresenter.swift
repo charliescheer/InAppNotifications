@@ -46,14 +46,12 @@ class NoticePresenter {
             return
         }
 
-        noticeTopConstraint?.isActive = false
-        let newConstraint = noticeView.bottomAnchor.constraint(equalTo: keyWindow.bottomAnchor, constant: Constants.notificationBottomMargin)
-        newConstraint.isActive = true
+        noticeTopConstraint?.constant = Constants.notificationBottomMargin
 
         let delay = noticeView.action == nil ? Times.waitShort : Times.waitLong
 
         UIView.animate(withDuration: Times.animationTime) {
-            keyWindow.layoutIfNeeded()
+            containerView.layoutIfNeeded()
         } completion: { (_) in
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 completion()
