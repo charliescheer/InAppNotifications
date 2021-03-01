@@ -1,5 +1,10 @@
 import UIKit
 
+protocol NoticePresentingDelegate {
+    func noticeTouchBegan()
+    func noticeTouchEnded()
+}
+
 class NoticeView: UIView {
     
     // MARK: Properties

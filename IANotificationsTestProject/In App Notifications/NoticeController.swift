@@ -59,7 +59,3 @@ private struct Times {
     static let tapDelay = TimeInterval(2)
 }
 
-protocol NoticePresentingDelegate {
-    func noticeTouchBegan()
-    func noticeTouchEnded()
-}
