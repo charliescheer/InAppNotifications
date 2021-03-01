@@ -16,7 +16,7 @@ class NoticeView: UIView {
     var delegate: NoticePresentingDelegate?
     var action: (() -> Void)? {
         didSet {
-            noticeButton.isHidden = action == nil ? true : false
+            noticeButton.isHidden = action == nil
         }
     }
 
