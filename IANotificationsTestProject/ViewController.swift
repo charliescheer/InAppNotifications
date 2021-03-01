@@ -10,18 +10,11 @@ class ViewController: UIViewController {
             print("well clicked")
         }
         let notice = Notice(message: "Notice!!", action: action)
-
         noticeController.present(notice)
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
         let notice = Notice(message: "Notice!!", action: nil)
-
-        let action = NoticeAction(title: "Click~") {
-            print("clicked")
-        }
-        let noticeWAction = Notice(message: "Action!!", action: action)
-
         noticeController.present(notice)
     }
     
