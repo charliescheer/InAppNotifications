@@ -31,26 +31,27 @@ class NoticeView: UIView {
     
     private func setupView() {
         let nib = UINib(nibName: "SnackbarNoticeView", bundle: nil)
-        if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
-            translatesAutoresizingMaskIntoConstraints = false
-            addSubview(view)
-            
-            NSLayoutConstraint.activate([
-                stackView.topAnchor.constraint(equalTo: self.topAnchor),
-                stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-            ])
-            
-            stackView.layer.cornerRadius = 25
-            stackView.clipsToBounds = true
-            stackView.backgroundColor = .lightGray
-
-            noticeButton.isHidden = true
-
-            let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(viewWasTapped(_:)))
-            view.addGestureRecognizer(tapGesture)
+        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
+            fatalError("Could not load notice from nib")
         }
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: self.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        ])
+
+        stackView.layer.cornerRadius = 25
+        stackView.clipsToBounds = true
+        stackView.backgroundColor = .lightGray
+
+        noticeButton.isHidden = true
+
+        let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(viewWasTapped(_:)))
+        view.addGestureRecognizer(tapGesture)
     }
     
     // MARK: Action
