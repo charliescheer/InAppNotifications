@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA34F4E325EC38AC0036A098 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34F4E225EC38AC0036A098 /* UIView+Extensions.swift */; };
+		BA34F4E725EC3F3E0036A098 /* UntouchableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34F4E625EC3F3E0036A098 /* UntouchableView.swift */; };
+		BA4F66DC25E6E44500D85C45 /* NoticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F66DB25E6E44500D85C45 /* NoticeController.swift */; };
+		BAD29F1225CF86AF0054DA6F /* NoticeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD29F1125CF86AF0054DA6F /* NoticeAction.swift */; };
+		BAD29F1525CF88D40054DA6F /* SnackbarNoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD29F1425CF88D40054DA6F /* SnackbarNoticeView.xib */; };
+		BAD29F1C25D07BE90054DA6F /* NoticePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD29F1B25D07BE90054DA6F /* NoticePresenter.swift */; };
+		BAD682BC25E491D100476BA8 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD682BB25E491D100476BA8 /* NoticeView.swift */; };
+		BAD682C225E4940400476BA8 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD682C125E4940400476BA8 /* Notice.swift */; };
 		BAFF927B25CF7F84008098DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFF927A25CF7F84008098DB /* AppDelegate.swift */; };
-		BAFF927D25CF7F84008098DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFF927C25CF7F84008098DB /* SceneDelegate.swift */; };
 		BAFF927F25CF7F84008098DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFF927E25CF7F84008098DB /* ViewController.swift */; };
 		BAFF928225CF7F84008098DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFF928025CF7F84008098DB /* Main.storyboard */; };
 		BAFF928425CF7F85008098DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAFF928325CF7F85008098DB /* Assets.xcassets */; };
@@ -16,9 +23,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA34F4E225EC38AC0036A098 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		BA34F4E625EC3F3E0036A098 /* UntouchableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UntouchableView.swift; sourceTree = "<group>"; };
+		BA4F66DB25E6E44500D85C45 /* NoticeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeController.swift; sourceTree = "<group>"; };
+		BAD29F1125CF86AF0054DA6F /* NoticeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAction.swift; sourceTree = "<group>"; };
+		BAD29F1425CF88D40054DA6F /* SnackbarNoticeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SnackbarNoticeView.xib; sourceTree = "<group>"; };
+		BAD29F1B25D07BE90054DA6F /* NoticePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePresenter.swift; sourceTree = "<group>"; };
+		BAD682BB25E491D100476BA8 /* NoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		BAD682C125E4940400476BA8 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		BAFF927725CF7F84008098DB /* IANotificationsTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IANotificationsTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAFF927A25CF7F84008098DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BAFF927C25CF7F84008098DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BAFF927E25CF7F84008098DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BAFF928125CF7F84008098DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAFF928325CF7F85008098DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +51,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA34F4E125EC38940036A098 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA34F4E225EC38AC0036A098 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BAD29F2025D08AD10054DA6F /* In App Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				BAD29F1425CF88D40054DA6F /* SnackbarNoticeView.xib */,
+				BAD682BB25E491D100476BA8 /* NoticeView.swift */,
+				BAD29F1125CF86AF0054DA6F /* NoticeAction.swift */,
+				BAD682C125E4940400476BA8 /* Notice.swift */,
+				BAD29F1B25D07BE90054DA6F /* NoticePresenter.swift */,
+				BA4F66DB25E6E44500D85C45 /* NoticeController.swift */,
+				BA34F4E625EC3F3E0036A098 /* UntouchableView.swift */,
+			);
+			path = "In App Notifications";
+			sourceTree = "<group>";
+		};
 		BAFF926E25CF7F84008098DB = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +92,14 @@
 		BAFF927925CF7F84008098DB /* IANotificationsTestProject */ = {
 			isa = PBXGroup;
 			children = (
+				BA34F4E125EC38940036A098 /* Extensions */,
 				BAFF927A25CF7F84008098DB /* AppDelegate.swift */,
-				BAFF927C25CF7F84008098DB /* SceneDelegate.swift */,
 				BAFF927E25CF7F84008098DB /* ViewController.swift */,
 				BAFF928025CF7F84008098DB /* Main.storyboard */,
 				BAFF928325CF7F85008098DB /* Assets.xcassets */,
 				BAFF928525CF7F85008098DB /* LaunchScreen.storyboard */,
 				BAFF928825CF7F85008098DB /* Info.plist */,
+				BAD29F2025D08AD10054DA6F /* In App Notifications */,
 			);
 			path = IANotificationsTestProject;
 			sourceTree = "<group>";
@@ -124,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD29F1525CF88D40054DA6F /* SnackbarNoticeView.xib in Resources */,
 				BAFF928725CF7F85008098DB /* LaunchScreen.storyboard in Resources */,
 				BAFF928425CF7F85008098DB /* Assets.xcassets in Resources */,
 				BAFF928225CF7F84008098DB /* Main.storyboard in Resources */,
@@ -137,9 +175,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD682BC25E491D100476BA8 /* NoticeView.swift in Sources */,
+				BAD29F1225CF86AF0054DA6F /* NoticeAction.swift in Sources */,
+				BAD29F1C25D07BE90054DA6F /* NoticePresenter.swift in Sources */,
+				BAD682C225E4940400476BA8 /* Notice.swift in Sources */,
+				BA4F66DC25E6E44500D85C45 /* NoticeController.swift in Sources */,
 				BAFF927F25CF7F84008098DB /* ViewController.swift in Sources */,
+				BA34F4E725EC3F3E0036A098 /* UntouchableView.swift in Sources */,
+				BA34F4E325EC38AC0036A098 /* UIView+Extensions.swift in Sources */,
 				BAFF927B25CF7F84008098DB /* AppDelegate.swift in Sources */,
-				BAFF927D25CF7F84008098DB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
